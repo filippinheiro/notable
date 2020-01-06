@@ -22,7 +22,6 @@ export default function App() {
         setNotes([...notes, ...docs])
         setPage(pages)
         setNoteInfo(noteInfo)
-        console.log(pages, noteInfo)
     }
 
     function loadMore() {
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fafafa',
     },
     list: {
-        padding: 10
+        paddingBottom: 90
     }
 })
 
