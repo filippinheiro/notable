@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import colors from '../values/colors'
+import { View, Text, StyleSheet} from 'react-native';
+import dateExtractor from '../services/dateExtractor'
 
-export default function Note({title, content}) {
+
+export default function Note({title, content, dateString}) {
+
+    const shortDate = dateExtractor.getShortDate(dateString)
+
     return (
-        <View styles = {styles.container}>
+        <View style = {styles.container}>
+            <Text style={styles.date}>{shortDate}</Text>
             <Text style={styles.title}>
                 {title}
             </Text>
@@ -16,18 +21,31 @@ export default function Note({title, content}) {
 }
 
 const styles = StyleSheet.create({
+
+    date:{
+        fontSize: 12,
+        paddingStart: 10,
+        paddingLeft: 10,
+        color: '#999'
+    },
     container:{
-        alignContent: 'center'
+        alignContent: 'center',
+        paddingBottom: 10
     },
     title: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: 'bold',
         paddingStart: 10,
+        paddingLeft: 10,
         paddingTop: 10
     },
     content:{
-        fontSize: 16,
-        padding: 10,
-        color: '#999'
+        fontSize: 18,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingStart: 10,
+        paddingLeft: 10,
+        color: '#000'
     }
+    
 })
